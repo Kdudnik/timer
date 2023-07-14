@@ -1,4 +1,94 @@
+@import url(./fonts.css);
+
 body {
     margin: 0;
     padding: 0;
+    background: linear-gradient(45deg, #9C27B0, #673AB7);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'LilitaOne', sans-serif;
+    color: #252525;
+}
+
+.timer {
+    width: 350px;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .3);
+    gap: 15px;
+}
+
+.timer {
+    font-size: 32px;
+}
+
+.timer span {
+    font-size: 72px;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.numbers > * {
+    flex-basis: 30%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.priority {
+    flex-basis: 100%;
+}
+
+.submiters-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.submiter {
+    flex-basis: auto;
+    flex-grow: 0;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-submit-type="start"] {
+    width: 75px;
+    height: 75px;
+    font-size: 64px;
+}
+
+button {
+    border: 0; /*2px solid #000*/
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 32px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .3);
+    transition: .3s;
+    font-family: 'LilitaOne', sans-serif;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #f4f4f4;
 }

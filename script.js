@@ -2,10 +2,11 @@ const numbers = document.querySelector('.numbers')
 const hours = document.querySelector('.hours')
 const minutes = document.querySelector('.minutes')
 const seconds = document.querySelector('.seconds')
-const reset = document.querySelector('.reset')
+const reset = document.querySelector('[data-submit-type="reset"]')
 let inputedTime = `${hours.innerHTML}${minutes.innerHTML}${seconds.innerHTML}`.split('')
 numbers.addEventListener('click', (event) => {
     if(event.target.classList.contains('numbers')) return
+    if(!Number(event.target.innerHTML)) return
     inputedTime.push(event.target.innerHTML)
     inputedTime.shift()
     translateToTime(inputedTime)
