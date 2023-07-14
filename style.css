@@ -63,6 +63,7 @@ a:hover::after {
 
 .timer {
     width: 350px;
+    height: 475px;
     background-color: #f2f2f2;
     border-radius: 20px;
     padding: 16px;
@@ -83,6 +84,14 @@ a:hover::after {
     font-size: 72px;
 }
 
+.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+    transition: .5s;
+}
+
 .numbers {
     display: flex;
     flex-wrap: wrap;
@@ -100,12 +109,36 @@ a:hover::after {
     flex-basis: 100%;
 }
 
+.progress-bar-wrapper {
+    display: none;
+    justify-content: flex-start;
+    width: 100%;
+    height: 5px;
+}
+
+.progress-bar {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: #252525;
+    border-radius: 5px;
+}
+
+@keyframes show-progress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
 .submiters-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .submiter {
