@@ -9,7 +9,9 @@ const clock = document.querySelector('.clock')
 const progressBarWrapper = document.querySelector('.progress-bar-wrapper')
 const progressBar = progressBarWrapper.querySelector('.progress-bar')
 let inputedTime = `${hours.innerHTML}${minutes.innerHTML}${seconds.innerHTML}`.split('')
-let pause = false
+
+let timer = null
+
 numbers.addEventListener('click', (event) => {
     if (event.target.classList.contains('numbers')) return
     inputedTime.push(event.target.innerHTML)
@@ -24,23 +26,21 @@ reset.addEventListener('click', () => {
     inputedTime = ['0', '0', '0', '0', '0', '0']
     progressBarWrapper.style.display = "none"
     numbers.style.display = "flex"
-    pause = true
+    clock.style.flexGrow = "0"
+    timer.abort()
 })
 
 start.addEventListener('click', () => {
-    if(hours.textContent == '00' && minutes.textContent == '00' && seconds.textContent == '00') return
-    pause = false
+    if (hours.textContent == '00' && minutes.textContent == '00' && seconds.textContent == '00') return
     clock.style.flexGrow = "1"
-    clock.style.marginTop = "0"
     progressBarWrapper.style.display = "flex"
     numbers.style.display = "none"
     const goal = new Date().getTime() + convertToTime(inputedTime)
-    progressBar.style.animation = `${Math.floor((goal - new Date().getTime())/1000)}s show-progress linear`
-    Countdown.timer(goal, function (time) {
-        if(pause) return
-        hours.textContent = time.hours.toLocaleString(undefined,{minimumIntegerDigits: 2})
-        minutes.textContent = time.minutes.toLocaleString(undefined,{minimumIntegerDigits: 2})
-        seconds.textContent = time.seconds.toLocaleString(undefined,{minimumIntegerDigits: 2})
+    progressBar.style.animation = `${Math.floor((goal - new Date().getTime()) / 1000)}s show-progress linear`
+    timer = Countdown.timer(goal, function (time) {
+        hours.textContent = time.hours.toLocaleString(undefined, { minimumIntegerDigits: 2 })
+        minutes.textContent = time.minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 })
+        seconds.textContent = time.seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 })
     }, function () {
         hours.textContent = '00'
         minutes.textContent = '00'

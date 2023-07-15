@@ -62,18 +62,19 @@ a:hover::after {
 }
 
 .timer {
-    width: 350px;
+    width: 325px;
     height: 475px;
     background-color: #f2f2f2;
     border-radius: 20px;
     padding: 16px;
     display: flex;
     align-items: center;
+    flex-shrink: 1;
+    z-index: 1;
     justify-content: space-between;
     flex-direction: column;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .3);
     gap: 15px;
-    z-index: 1;
 }
 
 .timer {
@@ -81,7 +82,7 @@ a:hover::after {
 }
 
 .timer span {
-    font-size: 72px;
+    font-size: 64px;
 }
 
 .clock {
@@ -89,7 +90,7 @@ a:hover::after {
     flex-direction: column;
     justify-content: center;
     margin-top: 15px;
-    transition: .5s;
+    transition: flex-grow .5s;
 }
 
 .numbers {
